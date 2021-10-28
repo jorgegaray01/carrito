@@ -173,7 +173,7 @@ export default function NavBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            ARMASTER
           </Typography>
           <Search>
             <SearchIconWrapper>
