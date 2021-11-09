@@ -1,13 +1,319 @@
-body {
+*{
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+.App{
+  max-width: 1555px;
+  width: 100%;
+  min-height: 100vh;
+  margin: auto;
+  box-shadow: 0 2px 6px #AAA5A5;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.inicio{
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 10rem ;
+}
+.inicio h1{
+  font-size: 2rem;
+  color: #2b2929;
+}
+.inicio img{
+  width: 100%;
+}
+
+header{
+  width: 97%;
+    min-height: 100px;
+    max-width:1530px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    box-sizing: border-box ;
+    background-color: white;
+    box-shadow: 0 10px 10px #AAA5A5;
+}
+a{      
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+a:hover{
+    color: #AAA5A5;
+}
+.menu{
+    display: none;
+}
+li{
+    list-style: none;
+    font-size: 1.5rem;
+}
+
+header ul{
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+header ul li{
+    padding: 0 1rem;
+}
+header ul li a{
+    font-weight: bold;
+}
+
+.cart{
+    position: relative;
+    cursor: pointer;
+}
+.cart box-icon{
+    width: 45px;
+    height: 45px;
+    
+}
+.cart span{
+    position: absolute;
+    top: -1rem;
+    right: -1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 0rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 50%;
+    background-color: crimson;
+}
+
+.title{
+  font-size: 2.4rem;
+    padding: 10rem 0 0 0;
+    color: #AAA5A5;
+}
+.productos{
+    padding: 5rem 1rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    gap: 3rem 2rem;
+    box-sizing: border-box ;
+} 
+.producto{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 10px 10px 2px rgba(0, 0, 0, 0.1);
+    border: 6px solid transparent;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.producto:hover{
+    border: 6px solid #AAA5A5;
+    ;
+}
+.producto__img img{
+    width: 310px;
+}
+.producto__footer{
+    padding: 1rem;
+}
+.producto__footer h1{
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #1a202c;
+    font-family: Helvetica, sans-serif
+    ;
+}
+.producto__footer p{
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.555);
+    text-transform: uppercase;
+    font-size: 18px;
+}
+.producto__footer .price{
+    font-size: 2rem;
+    color: #1a202c;
+}
+.productos .bottom{
+    width: 100%;
+    height: 45px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem 3.5rem;
+    padding: 0 1rem;
+    margin: 1rem;
+}
+.bottom .btn{
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.bottom button{
+    background-color: #3033d3;
+    max-width: 250px;
+    width: 100%;    
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+}
+.bottom div{
+    background-color:#7c0c0c;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    margin-left: -2rem;
+    border-radius: 5px;
+}
+.bottom div a{
+    color: white;
+    font-weight: 700;
+}
+.bottom div a:hover{
+    color: white;
+}
+
+.carritos{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 300ms ease-in-out;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 2;
+    padding-bottom: 5rem;
+    visibility: hidden;
+}
+.carrito{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.5);
+    width: 60%;
+    height: 80%;
+    padding: 1.6rem;
+    border-radius: 8px;
+    overflow-x: scroll;
+    transition: all 300ms ease-in-out;
+    background-color: white;
+    opacity: 0;
+    visibility: hidden;
+}
+.carrito h2{
+    text-align: center;
+    font-size: 2rem;
+}
+.carritos.show{
+    visibility: visible;
+}
+
+.carrito.show{
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+    visibility: visible;
+}
+.carrito__close box-icon{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transform: all 300ms ease-in-out;
+    margin: 3rem 0 0 2rem
+}
+.carrito__close box-icon:hover {
+    fill: crimson;
+}
+.carrito__center{
+    width: 98%;
+    margin: 0 auto;
+}
+.carrito__item{
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr;
+    width: 80%;
+    margin: 2rem auto;
+    box-shadow: 0 1px 10px saddlebrown;
+    border-radius: 5px;
+}
+.carrito__item div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.carrito__item img{
+    width: 10rem;
+}
+.carrito__item h3{
+    margin-top: 1.5rem;
+    font-family: Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.carrito__item .price{
+    color: #1a202c;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: start;
+    margin-left: -17rem ;
+}
+.carrito__item box-icon{
+    fill:#918d8d;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: .3rem;
+}
+.carrito__item .cantidad{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.carrito__item .remove__item box-icon{
+    width: 60px;
+    height: 80px;
+    fill:  crimson;
+    margin-top: 2rem;
+}
+.carrito__footer{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.carrito__footer h3{
+    padding: 9px;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.carrito__footer .btn{
+    display: inline-block;
+    padding: .3rem 1rem;    
+    font-size: 1.3rem;
+    background-color: #969090;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.carrito__footer .btn:hover{
+    background-color: #927d7d;
+    color: white;
 }

@@ -1,17 +1,23 @@
-import './App.css';
-import NavBar from './components/navbar/navbar';
-import List from './components/list/list';
-import ItemListContainer from './components/itemlistcontainer/itemlistcontainer'
-
+import React from "react";
+import {Header} from './components/headers/navBar';
+import 'boxicons';
+import { BrowserRouter as Router } from "react-router-dom";
+import {Paginas} from './components/pages';
+import {DataProvider} from "./context/dataprovider";
+import {Carrito} from "./components/carrito/itemCount"
 
 function App() {  
   return (
+    <DataProvider>
     <div className="App">
-      <NavBar/>
-      <List/>
-      <ItemListContainer/>
-     
-    </div>
+      <Router>   
+      <Header />
+      <Carrito />
+      <Paginas />
+      </Router>  
+    </div> 
+    </DataProvider>      
+    
   );
 }
 
