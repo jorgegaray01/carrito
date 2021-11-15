@@ -9,6 +9,10 @@ export const DataProvider = (props) => {
     const  [carrito, setCarrito] = useState([]);
     const [total, setTotal] = useState(0);
 
+    useEffect(() => {
+        const timer = setTimeout(() => console.log(Data), 2000);
+      }, []);
+
     useEffect(() =>{
         const producto = Data.items
         if (producto){
