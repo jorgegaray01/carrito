@@ -16,14 +16,14 @@ export const Header = () => {
         <header>            
             <Link to="/">
                 <div className="logo">
-                    <img src={Logo} alt="logo" width="120"/>
+                    <img src={Logo} alt="logo" width="110"/>
                 </div>
             </Link>
             <ul>
-                <li>
+                <li className="nav">
                     <Link to="/">Inicio</Link>
                 </li>
-                <li>
+                <li className="nav">
                     <Link to="/products">Productos</Link>
                 </li>                                
             </ul>
