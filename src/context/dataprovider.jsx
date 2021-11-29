@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
 import Data from './data';
+import swal from 'sweetalert'
 
 export const DataContext = createContext();
 
@@ -33,7 +34,11 @@ export const DataProvider = (props) => {
             })
             setCarrito([...carrito, ...data])
         }else {
-            alert("Se ha añadido el producto al carrito")
+            swal({
+                title: "Se ha añadido el producto al carrito",
+                icon: "warning",
+                buttons: "Aceptar"
+            })
         }
     }
 

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import {DataContext} from "../../context/dataprovider";
+import swal from 'sweetalert'
 
 export const Carrito = () => {
     const value = useContext(DataContext)
@@ -32,19 +33,27 @@ export const Carrito = () => {
             setCarrito([...carrito])
         })
     }
-
+    
     const onAdd = id =>{
-        if(window.confirm("¿Quieres eliminar el producto")){
-            carrito.forEach((item, index) =>{
-                if(item.id===id){
-                item.cantidad = 1;
-                carrito.splice(index, 1)                               
-                }
-            })
-            setCarrito([...carrito])
+        swal({
+            title: "¿Quieres eliminar el producto",
+            icon: "warning",
+            buttons: ["No", "Si"]
+        }).then(respuesta=>{
+            if(respuesta){
+                carrito.forEach((item, index) =>{
+                    if(item.id===id){
+                    item.cantidad = 1;
+                    carrito.splice(index, 1)                               
+                    }
+                })
+                setCarrito([...carrito])
+                swal({text: "El articulo se ha borrado exitosamente",
+                        icons: "sucess"})
+            }
+
+        })
         }
-            
-    }
 
     return(
         <div className={show1}>

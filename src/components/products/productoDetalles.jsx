@@ -11,6 +11,7 @@ export const ProductoDetalles = () => {
     const [url, setUrl]= useState(0)
     const [images, setImages] = useState('')
     const params = useParams();
+    let item = 0;
 
     useEffect(() => {
         productos.forEach(producto =>{
@@ -54,6 +55,26 @@ export const ProductoDetalles = () => {
                     </div>
                 </div>
             }
+
+            <h2 className="relacionados">Otros productos</h2>
+            <div className="productos">
+                {
+                    productos.map((producto) =>{
+                        if((item < 3 )&&(detalle.category === producto.category)){
+                            item++;
+                        return <ProductoItem 
+                            key={producto.id}
+                            id={producto.id}
+                            title={producto.title}
+                            price={producto.price}
+						    image={producto.image}
+						    category={producto.category}
+                            cantidad={producto.cantidad}		
+                    /> 
+                    }               
+                })
+            }                      
+        </div> 
 
         </>
     )
