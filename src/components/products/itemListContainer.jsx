@@ -34,7 +34,7 @@ export const ProductoItem = ({
                 </button>
                 <div>
                     <Link to={`/products/${id}`} className="btn">
-                        Ver imagen
+                        <b>Ver imagen</b>
                     </Link>
                 </div>
             </div>

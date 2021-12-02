@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import { DataContext } from "../../context/dataprovider";
 import { useParams } from "react-router-dom";
 import { ProductoItem } from "./itemListContainer";
+import 'bootstrap/dist/css/bootstrap.css';
 
 export const ProductoDetalles = () => {
     const value = useContext(DataContext)
@@ -50,13 +51,13 @@ export const ProductoDetalles = () => {
                     }                    
                     <div className="description">
                         <p><b>Descripción:</b> La imagen del producto es solo referencial.</p>
-                        <p>Para el uso de esta arma se requiere una capsula de CO2.</p>
-                        <br/>
+                        <p>Para el uso de esta arma se requiere una capsula de CO2.</p>                        
                     </div>
                 </div>
             }
-
+        
             <h2 className="relacionados">Otros productos</h2>
+            <br />
             <div className="productos">
                 {
                     productos.map((producto) =>{

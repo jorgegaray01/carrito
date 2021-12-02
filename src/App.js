@@ -4,7 +4,7 @@ import 'boxicons';
 import { BrowserRouter as Router } from "react-router-dom";
 import {Paginas} from './components/pages';
 import {DataProvider} from "./context/dataprovider";
-import {Carrito} from "./components/carrito/itemCount"
+import {Carrito} from "./components/carrito/itemCount";
 
 function App() {  
   return (
