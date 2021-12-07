@@ -47,7 +47,7 @@ export const ProductoDetalles = () => {
                     <div className="grid"></div>
                     <button onClick={() =>addCarrito(detalle.id)}>Añadir al carrito</button>
                     {
-                    url ? <img src={images} alt={detalle.title}/> : <img src={detalle.image.default} alt={detalle.title}/>
+                    url ? <img src={images} alt={detalle.title}/> : <img src={detalle.image} alt={detalle.title}/>
                     }                    
                     <div className="description">
                         <p><b>Descripción:</b> La imagen del producto es solo referencial.</p>

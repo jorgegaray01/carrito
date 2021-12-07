@@ -1,18 +1,40 @@
 import React, { useState, useEffect, createContext } from "react";
 import Data from './data';
 import swal from 'sweetalert'
+import {
+    collection,
+    doc,
+    getDoc,
+    getDocs,
+    limit,
+    getFirestore,
+    query,
+    where
+} from "firebase/firestore";
 
 export const DataContext = createContext();
 
 export const DataProvider = (props) => {
+    const [producto, setProducto] = useState([]);
     const [productos, setProductos] = useState([])
     const [menu, setMenu] = useState(false);
     const  [carrito, setCarrito] = useState([]);
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
-        const timer = setTimeout(() => console.log(Data), 2000);
+        
+        const db = getFirestore();    
+        const itemsCollectionRef = collection(db, "items");
+        const q = query(
+          itemsCollectionRef,          
+        );
+    
+        getDocs(q).then((snapshot) => {
+          setProductos(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+        });
       }, []);
+
+    
 
     useEffect(() =>{
         const producto = Data.items

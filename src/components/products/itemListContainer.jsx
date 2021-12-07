@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "../../context/dataprovider";
 
+
 export const ProductoItem = ({
     id,
     title,
@@ -12,14 +13,14 @@ export const ProductoItem = ({
 }) => {
 
     const value = useContext(DataContext);
-    const addCarrito = value.addCarrito
+    const addCarrito = value.addCarrito    
 
     return (
         
             <div className="producto">
             <Link to={`/products/${id}`}>
                 <div className="producto__img">
-                    <img src={image.default} alt={title} />
+                    <img src={image} alt={title} />
                 </div>
             </Link>
             <div className="producto__footer">

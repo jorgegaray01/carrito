@@ -72,7 +72,7 @@ export const Carrito = () => {
             {
                 carrito.map((producto)=>(    
                     <div className="carrito__item" key={producto.id}>
-                        <img src={producto.image.default} alt="" />                    
+                        <img src={producto.image} alt="" />                    
                     <div>  
                         <h3>{producto.title}</h3>
                         <p className="price">${producto.price}</p>
