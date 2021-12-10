@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext } from "react";
 import Data from './data';
 import swal from 'sweetalert'
-import {
+import {addDoc,
     collection,
     doc,
     getDoc,
@@ -11,6 +11,8 @@ import {
     query,
     where
 } from "firebase/firestore";
+
+
 
 export const DataContext = createContext();
 
@@ -34,7 +36,26 @@ export const DataProvider = (props) => {
         });
       }, []);
 
+      /*const sendOrder = () => {
     
+        const order = {
+            buyer:{ 
+                usuariodata: "jorge",
+                items: Data.items,
+                precioFinal: "precioTotal",
+            },
+            items: [
+                { name: (Data.items.title), price: Data.price },
+                
+            ],
+            total: 100
+        };
+        const db = getFirestore();
+        const ordersCollection = collection(db, "orders");
+        addDoc(ordersCollection, order).then(({ id }) => {
+            console.log(id);
+        });
+    }; */     
 
     useEffect(() =>{
         const producto = Data.items

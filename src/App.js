@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import {Paginas} from './components/pages';
 import {DataProvider} from "./context/dataprovider";
 import {Carrito} from "./components/carrito/itemCount";
+import Checkout from './components/checkOut/checkOut.jsx';
 
 function App() {  
   return (

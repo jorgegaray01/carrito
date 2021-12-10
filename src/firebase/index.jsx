@@ -23,6 +23,3 @@ ReactDOM.render(
   </StrictMode>,
   rootElement
 );
-
-
-
