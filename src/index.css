@@ -87,7 +87,13 @@ li{
     text-align: center;
     justify-content: center;
     background-color: rgb(78, 76, 76);
-    margin:10px 10px 10px 10px;    
+    margin:10px 10px 10px 10px;   
+}
+
+.navParrafo{
+    font-size: 30px;
+    text-align: center;
+    justify-content: center;
 }
 
 

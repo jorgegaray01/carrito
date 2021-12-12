@@ -21,10 +21,10 @@ export const Header = () => {
             </Link>
             <ul>
                 <li className="nav">
-                    <Link to="/">Inicio</Link>
+                    <Link to="/"><h2 className="navParrafo">Inicio</h2></Link>
                 </li>
                 <li className="nav">
-                    <Link to="/products">Productos</Link>
+                    <Link to="/products"><h2 className="navParrafo">Productos</h2></Link>
                 </li>                                
             </ul>
                 <div className="cart" onClick={toogleMenu}>

@@ -3,7 +3,6 @@ import Data from '../../context/data';
 import {DataContext} from "../../context/dataprovider";
 import swal from 'sweetalert'
 import { addDoc, collection, getFirestore } from "firebase/firestore"
-
  
 
 export const Carrito = () => {
@@ -17,30 +16,7 @@ export const Carrito = () => {
     const [surname, setSurname] = useState("");
     const [email, setEmail] = useState("");
     
-    const sendOrder = () => {
     
-        const order = {
-            buyer:{ 
-                name: name,
-                surname: surname,
-                email: email,
-            },
-            items: [...carrito],
-            total: {total}
-        };
-        const db = getFirestore();
-        const ordersCollection = collection(db, "orders");
-        addDoc(ordersCollection, order).then(({ id }) => {
-            console.log(id);
-        });
-        swal({
-            title: "Su pago fue exitoso",
-            text: (`Su numero de venta es: ${id}`),
-            icon: "success",
-            buttons: "Aceptar"
-        })
-        
-    };
         
 
     const tooglefalse = () => {
@@ -85,7 +61,6 @@ export const Carrito = () => {
                 swal({text: "El articulo se ha borrado exitosamente",
                         icons: "sucess"})
             }
-
         })
         }
         
@@ -97,7 +72,36 @@ export const Carrito = () => {
           }
           function onEmailChange(evt) {
             setEmail(evt.target.value);
-          }      
+          }
+          
+          const sendOrder = () => {
+    
+            const order = {
+                buyer:{ 
+                    name: name,
+                    surname: surname,
+                    email: email,
+                },
+                items: [...carrito],
+                total: {total}
+            };
+            const db = getFirestore();
+            const ordersCollection = collection(db, "orders");
+            addDoc(ordersCollection, order).then(({ id }) => {
+                console.log(id);
+                swal({
+                  title: "Su pago fue exitoso",
+                  text: `Su numero de venta es: ${id}`,
+                  icon: "success",
+                  buttons: "Aceptar",
+                });
+                setCarrito([]);                   
+
+            })
+            .catch((err) => {
+                console.log(`No se pudo concretar la operacion...`, err);
+            });        
+        };
           
         
     return(
@@ -135,18 +139,18 @@ export const Carrito = () => {
         }
         </>
         }
-
+        
         <div><h3>Favor, ingrese sus datos</h3></div>
-
+        <form class="form-horizontal" method="gest"/>
         <div class="form-group">
             <label style={{ marginRight: 4 }}>Nombre</label>
-            <input type="email" class="form-control" id="exampleInputNombre" aria-describedby="nameHelp" placeholder="Enter Nombre" onChange={(evt) => onNameChange(evt)} />
+            <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="nameHelp" placeholder="Enter Nombre" onChange={(evt) => onNameChange(evt)} />
         </div>
         
         
         <div class="form-group">
             <label style={{ marginRight: 4 }}>Apellido</label>
-            <input type="email" class="form-control" id="exampleInputApellido" aria-describedby="surnameHelp" placeholder="Enter Apellido" onChange={(evt) => onSurnameChange(evt)} />
+            <input type="text" class="form-control" id="exampleInputApellido" aria-describedby="surnameHelp" placeholder="Enter Apellido" onChange={(evt) => onSurnameChange(evt)} />
         </div>
         
         
@@ -154,11 +158,11 @@ export const Carrito = () => {
             <label style={{ marginRight: 4 }}>Email</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onChange={(evt) => onEmailChange(evt)} />
         </div>
-
+        
         </div>
             <div className="carrito__footer">
                 <h3>Total a pagar: ${total}</h3>                
-                <button onClick={sendOrder}className="btn">Realizar pago</button>                             
+                <button onClick={sendOrder} className="btn" >Realizar pago</button>                             
             </div>
         </div>
         </div>
