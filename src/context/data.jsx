@@ -66,7 +66,7 @@ const data = {
     },
     {
       id: 8,
-      title: "Pistola CO2, Python, 6 tiros",
+      title: "Revolver CO2, Python, 6 tiros",
       price: 14500,
       image: require('../images/img08.jpg'),
       category: "Arma corta CO2",
