@@ -1,12 +1,15 @@
 import React, {useContext} from "react"
 import Logo from "../../images/Logo.jpg";
-import {Link} from "react-router-dom"
-import {DataContext} from "../../context/dataprovider"
+import {Link} from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import {DataContext} from "../../context/dataprovider";
+import Menu from '../products/itemListContainer';
 
 export const Header = () => {
     const value = useContext(DataContext);
     const [menu, setMenu] = value.menu;
-    const [carrito] = value.carrito;    
+    const [carrito] = value.carrito;
+    
     
     const toogleMenu = () =>{
         setMenu(!menu)
@@ -21,11 +24,14 @@ export const Header = () => {
             </Link>
             <ul>
                 <li className="nav">
-                    <Link to="/"><h2 className="navParrafo">Inicio</h2></Link>
+                    <NavLink className="navParrafo" activeClassName="Active" exact to={'/'}>Inicio</NavLink>
                 </li>
                 <li className="nav">
-                    <Link to="/products"><h2 className="navParrafo">Productos</h2></Link>
-                </li>                                
+                    <NavLink className="navParrafo" activeClassName="active" to={'/products'} >Pistolas</NavLink>
+                </li>
+                <li className="nav">
+                    <NavLink className="navParrafo" activeClassName="Active" to={'/products/category/Revolver'}>Revolver</NavLink>
+                </li>                                                
             </ul>
                 <div className="cart" onClick={toogleMenu}>
                     <box-icon name="cart"></box-icon>
