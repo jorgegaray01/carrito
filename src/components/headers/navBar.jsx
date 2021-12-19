@@ -3,12 +3,16 @@ import Logo from "../../images/Logo.jpg";
 import {Link} from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import {DataContext} from "../../context/dataprovider";
-import Menu from '../products/itemListContainer';
+import { ProductoItem } from "../products/itemListContainer";
+import Lista from '../products/itemList';
+import { Category } from "../products/category";
+import data from "../../context/data";
 
 export const Header = () => {
     const value = useContext(DataContext);
     const [menu, setMenu] = value.menu;
     const [carrito] = value.carrito;
+    const [productos] = value.productos
     
     
     const toogleMenu = () =>{
@@ -17,20 +21,20 @@ export const Header = () => {
 
     return (
         <header>            
-            <Link to="/">
+            <NavLink to="/">
                 <div className="logo">
                     <img src={Logo} alt="logo" width="110"/>
                 </div>
-            </Link>
+            </NavLink>
             <ul>
                 <li className="nav">
                     <NavLink className="navParrafo" activeClassName="Active" exact to={'/'}>Inicio</NavLink>
                 </li>
                 <li className="nav">
-                    <NavLink className="navParrafo" activeClassName="active" to={'/products'} >Pistolas</NavLink>
+                    <NavLink className="navParrafo" activeClassName="Active" to={'/products'} >Pistolas</NavLink>
                 </li>
                 <li className="nav">
-                    <NavLink className="navParrafo" activeClassName="Active" to={'/products/category/Revolver'}>Revolver</NavLink>
+                    <NavLink className="navParrafo" activeClassName="Active" to={`/products/Revolver`} >Revolver</NavLink>
                 </li>                                                
             </ul>
                 <div className="cart" onClick={toogleMenu}>

@@ -29,3 +29,5 @@ export const ProductosLista = () => {
         </>
     );
 };
+
+export default ProductosLista;
